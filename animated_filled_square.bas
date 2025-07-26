@@ -7,6 +7,7 @@
 70 dx = 2 : dy = 2
 80 REPEAT
 90   CLG
+95 PRINT "Animating a filled square..."
 100  VDU 25, 0, x; y;
 110  VDU 25, 101, x+50; y+50;
 120  x = x + dx

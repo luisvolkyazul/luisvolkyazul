@@ -45,7 +45,7 @@
 450   IF y3 <= 0 OR y3+40 >= 1024 THEN dy3 = -dy3
 460   REM IF x4 <= 0 OR x4+50 >= 1280 THEN dx4 = -dx4
 470   REM IF y4 <= 0 OR y4+30 >= 1024 THEN dy4 = -dy4
-480   FOR delay = 1 TO 100
+480   FOR delay = 1 TO 50
 490     REM Delay loop
 500   NEXT delay
 510 UNTIL INKEY(1) <> -1

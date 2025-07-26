@@ -7,7 +7,7 @@
 70 x2 = 100 : y2 = 100 : dx2 = 3 : dy2 = 1 : REM Triangle
 80 x3 = 150 : y3 = 50 : dx3 = 1 : dy3 = 2 : REM Circle
 90 x4 = 50 : y4 = 100 : dx4 = 2 : dy4 = 3 : REM Filled Rectangle
-100 GCOL 0, 15
+100 GCOL 0, RND(15)
 110 REPEAT
 120   CLG
 130   REM Draw Square
@@ -45,7 +45,7 @@
 450   IF y3 <= 0 OR y3+40 >= 1024 THEN dy3 = -dy3
 460   REM IF x4 <= 0 OR x4+50 >= 1280 THEN dx4 = -dx4
 470   REM IF y4 <= 0 OR y4+30 >= 1024 THEN dy4 = -dy4
-480   FOR delay = 1 TO 50
+480   FOR delay = 1 TO 5
 490     REM Delay loop
 500   NEXT delay
 510 UNTIL INKEY(1) <> -1

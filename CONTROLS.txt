@@ -1,0 +1,48 @@
+================================================
+    TETRIS FOR AGON LIGHT 2 - CONTROLS REFERENCE
+================================================
+
+GAME CONTROLS:
+--------------
+Arrow Keys or WASD:
+  ←/A  - Move piece left
+  →/D  - Move piece right  
+  ↓/S  - Soft drop (faster fall)
+  ↑/W  - Rotate piece clockwise
+
+SPACE  - Hard drop (instant drop)
+P      - Pause/Unpause game
+ESC    - Quit to menu
+
+MENU CONTROLS:
+--------------
+ENTER  - Restart after game over
+ESC    - Exit to BBC BASIC
+
+SCORING:
+--------
+Single line:  40 × (level + 1) points
+Double lines: 100 × (level + 1) points  
+Triple lines: 300 × (level + 1) points
+TETRIS (4):   1200 × (level + 1) points
+
+Soft drop:    +1 point per row
+Hard drop:    +2 points per row
+
+GAME RULES:
+-----------
+• Complete horizontal lines to clear them
+• Level increases every 10 lines cleared
+• Game speed increases with each level
+• Game over when pieces reach the top
+
+TIPS:
+-----
+• Save I-pieces for 4-line Tetris combos
+• Use hard drop (SPACE) for quick placement
+• Plan ahead using the NEXT piece preview
+• Higher levels = more points per line
+
+================================================
+     Have fun playing Tetris on your Agon!
+================================================

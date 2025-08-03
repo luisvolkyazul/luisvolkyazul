@@ -1,0 +1,45 @@
+REM Agon Light 2 Tetris Auto-Startup Script
+REM Rename this file to "autoexec.txt" to auto-run Tetris on boot
+REM
+REM This script will:
+REM 1. Clear the screen
+REM 2. Display a welcome message  
+REM 3. Load and run the Tetris game
+REM 4. Provide fallback if game file is missing
+
+CLS
+PRINT "Agon Light 2 Tetris Game"
+PRINT "========================="
+PRINT
+PRINT "Loading Tetris..."
+PRINT
+
+REM Check if tetris.bas exists
+ON ERROR GOTO 100
+
+REM Try to load and run Tetris
+LOAD "tetris.bas"
+PRINT "Tetris loaded successfully!"
+PRINT "Starting game in 3 seconds..."
+PRINT
+FOR i% = 3 TO 1 STEP -1
+  PRINT "Starting in " + STR$(i%) + "..."
+  TIME = 0
+  REPEAT UNTIL TIME >= 100
+NEXT i%
+PRINT
+PRINT "Have fun playing Tetris!"
+PRINT
+RUN
+
+REM Error handler if tetris.bas is not found
+100
+PRINT "Error: tetris.bas not found!"
+PRINT
+PRINT "Please ensure tetris.bas is on your SD card"
+PRINT "in the root directory, then type:"
+PRINT
+PRINT "LOAD " + CHR$(34) + "tetris.bas" + CHR$(34)
+PRINT "RUN"
+PRINT
+END

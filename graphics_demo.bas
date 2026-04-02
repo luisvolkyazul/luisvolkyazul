@@ -38,23 +38,23 @@
 1025 MODE 0
 1030 PRINT "Drawing shapes..."
 1040 :
-1050 REM Draw filled rectangles - colors 16-31
+1050 REM Draw filled rectangles - colors 0-7
 1060 FOR I%=0 TO 7
-1070   GCOL 0,I%+16
+1070   GCOL 0,I%
 1080   MOVE I%*160+20, 50
 1090   PLOT 101, I%*160+150, 150
 1100 NEXT
 1110 :
-1120 REM Draw circles - colors 32-47
+1120 REM Draw circles - colors 0-7
 1130 FOR I%=0 TO 7
-1140   GCOL 0,I%+32
+1140   GCOL 0,I%+1
 1150   MOVE 640, 350
 1160   PLOT 149, 640, 350+40+I%*10
 1170 NEXT
 1180 :
-1190 REM Draw triangles - colors 48-63
+1190 REM Draw triangles - colors 0-7
 1200 FOR I%=0 TO 5
-1210   GCOL 0,I%+48
+1210   GCOL 0,I%+2
 1220   MOVE 200+I%*160, 500
 1230   MOVE 260+I%*160, 650
 1240   PLOT 85, 320+I%*160, 500
@@ -100,7 +100,7 @@
 2150   IF Y%>=400-R%*2 THEN DY% = -DY%: Y% = 400-R%*2
 2155   :
 2160   REM Draw new ball
-2165   GCOL 0,19
+2165   GCOL 0,1
 2170   MOVE X%, Y%
 2175   PLOT 149, X%+R%, Y%+R%
 2180   :
@@ -121,29 +121,28 @@
 3010 PRINT "====================="
 3020 PRINT ""
 3030 MODE 0
-3040 PRINT "Cycling through colors..."
+3040 PRINT "Stacking boxes from bottom to top..."
 3050 :
-3060 REM Create color bars - colors 16-23
-3070 FOR BAR%=0 TO 7
-3080   GCOL 0,BAR%+16
-3090   MOVE BAR%*80, 50
-3100   PLOT 101, BAR%*80+70, 150
-3110 NEXT
-3120 :
-3130 REM Cycle colors - animate bars
-3140 FOR CYCLE%=0 TO 200
-3150   GCOL 0,(CYCLE% MOD 8)+16
-3160   MOVE (CYCLE% MOD 8)*80, 200
-3170   PLOT 101, (CYCLE% MOD 8)*80+70, 280
-3180   *FX19
-3190 NEXT
-3200 :
-3210 CLS
-3220 PRINT ""
-3230 PRINT "Demo 3 complete!"
-3240 PRINT "Press SPACE to continue..."
-3250 REPEAT UNTIL INKEY(0)=32
-3260 RETURN
+3055 REM Stack 8 columns of boxes, each column 7 boxes high
+3060 REM Boxes get smaller as they go UP (Y=0 is top)
+3065 FOR ROW%=0 TO 6
+3070   FOR COL%=0 TO 7
+3075     GCOL 0,(COL%+ROW%) MOD 8
+3080     X% = COL%*80 + 10
+3085     Y% = 350 - ROW%*40
+3090     W% = 70 - (6-ROW%)*5
+3095     H% = 30 - (6-ROW%)*2
+3100     MOVE X%, Y%
+3105     PLOT 101, X%+W%, Y%-H%
+3110     *FX19:*FX19
+3115   NEXT COL%
+3120 NEXT ROW%
+3125 :
+3130 PRINT ""
+3135 PRINT "Demo 3 complete!"
+3140 PRINT "Press SPACE to continue..."
+3145 REPEAT UNTIL INKEY(0)=32
+3150 RETURN
 3330 :
 3340 REM ============================================================
 3350 REM DEMO 4: LINE ART
@@ -166,13 +165,13 @@
 4150   Y1 = CY% + R1 * SIN(ANGLE)
 4160   X2 = X1 + R2 * COS(ANGLE * 6)
 4170   Y2 = Y1 + R2 * SIN(ANGLE * 6)
-4180   GCOL 0,(I%/60) MOD 8 + 16
+4180   GCOL 0,(I%/60) MOD 8
 4190   PLOT 0, X2, Y2
 4200 NEXT
 4210 :
 4220 REM Concentric circles
 4230 FOR R%=20 TO 200 STEP 25
-4240   GCOL 0,((R%/25)+1) MOD 8 + 16
+4240   GCOL 0,((R%/25)+1) MOD 8
 4250   MOVE CX%, CY%
 4260   PLOT 145, CX%, CY%+R%
 4270 NEXT
@@ -182,7 +181,7 @@
 4310   ANGLE = ARM% * 60 * PI / 180
 4320   X2 = CX% + 250 * COS(ANGLE)
 4330   Y2 = CY% + 250 * SIN(ANGLE)
-4340   GCOL 0,ARM%+17
+4340   GCOL 0,ARM%+1
 4350   MOVE CX%, CY%
 4360   PLOT 5, X2, Y2
 4370 NEXT

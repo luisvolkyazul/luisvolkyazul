@@ -2,9 +2,11 @@
    20 PRINT "First use of BARGO to build the..."
    30 PRINT '"euclid_algo.bas program."
    40 :
-   50 PROC_REQ_VALUES
-   55 greatest_common_divisor = FN_EUCLID(m,n)
-   60 PROC_DISPLAY_RESULTS
+   45 REPEAT
+   50   PROC_REQ_VALUES
+   55   greatest_common_divisor = FN_EUCLID(m,n)
+   60   PROC_DISPLAY_RESULTS
+   65 UNTIL FALSE
    70 END
    80 :
    90 REM =====================================================

@@ -1,4 +1,5 @@
 1  CLS
+2  MODE 24
 5  PRINT "XML READING PROGRAM IN BBC BASIC V (DEBUG MODE)"
 
 10 REM ============================
@@ -51,7 +52,7 @@
 1190       bytes% += 1
 
 1200       REM --- DEBUG OUTPUT (REAL LINE NUMBER DISPLAY) ---
-1210       PRINT "Line "; 1200 + bytes%; ": Byte "; bytes%; " = ";
+1210       PRINT "Byte "; bytes%; " = ";
 
 1220       IF byte% = 13 THEN
 1230         PRINT "CR (ASCII 13)"
@@ -110,5 +111,6 @@
 3020 REM ============================
 3030 DEF PROCdisplayMessage(msg$)
 3040 VDU 23,0,192,0
-3050 PRINT "Message from XML: "; msg$
+3045 PRINT "Original contents of XML: "; text$
+3050 PRINT "Message from XML:  "; msg$
 3060 ENDPROC

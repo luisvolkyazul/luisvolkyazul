@@ -1,4 +1,6 @@
    10 REM MOS SysVars Viewer for Agon Light 2
+   15 REM https://agonplatform.github.io/agon-docs/BBC-BASIC-for-Agon/?h=oscli#accessing-the-mos-sysvars
+   17 REM https://agonplatform.github.io/agon-docs/mos/API/#sysvars
    20 CLS
    30 PRINT "MOS SysVars Viewer for Agon Light 2 Microcomputer"
    35 PRINT STRING$(10,"-=*=-")

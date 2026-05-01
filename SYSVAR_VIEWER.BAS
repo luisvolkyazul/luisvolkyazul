@@ -18,7 +18,6 @@
   150 PRINT' "rtc:";FN_s(&1A);"/";FN_s(&1B);"/";FN_s(&1C);" ";FN_s(&1D);":";FN_s(&1E);":";FN_s(&1F)
   160 PRINT' "kbd delay:";FN_w(&22);"ms rate:";FN_w(&24);"ms led:";FN_s(&26)
   170 PRINT' "mouse X:";FN_w(&29);" Y:";FN_w(&2B);" btns:";FN_s(&2D);" wheel:";FN_s(&2E)
-  180 PRINT' "gp:";FN_s(&37)
   190 PRINT
   192 PRINT STRING$(10,"-=*=-")
   195 PRINT"BBC BASIC for: ";:OSCLI("VERSION")

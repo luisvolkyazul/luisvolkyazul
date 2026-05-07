@@ -1,9 +1,11 @@
 10 REM TVM Calculator for Agon Light 2 (BBC BASIC V)
 20 REM Using REPEAT UNTIL, Procedures, Functions, File Output
-30 REM MODE 0: REM Uncomment for 80x25 text mode (Agon Light 2 default)
+30 MODE 0: REM Uncomment for 80x25 text mode (Agon Light 2 default)
+35 REPEAT
+37 CLS
 40 PRINT "=== TIME VALUE OF MONEY CALCULATOR ==="
 45 PRINT "(For entertainment purposes only)"
-50 REPEAT
+50 REM REPEAT
 60   REPEAT
 70     PROCmenu
 80     INPUT "Enter choice (1-6): "; C

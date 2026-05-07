@@ -32,6 +32,7 @@
 290  UNTIL A$="Y" OR A$="y" OR A$="N" OR A$="n"
 300 UNTIL A$="N" OR A$="n"
 310 PRINT "Goodbye!"
+315 PRINT
 320 END
 
 3000 DEF PROCmenu

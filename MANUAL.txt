@@ -1,0 +1,107 @@
+DATE CALCULATOR -- USER MANUAL
+===============================
+
+Welcome! This program turns your Agon Light 2 into a handy date
+calculator, inspired by the classic HP-12C financial calculator.
+
+
+GETTING STARTED
+---------------
+
+Copy the file datecalc.bas to your Agon Light 2's SD card. Then:
+
+    LOAD "datecalc.bas"
+    RUN
+
+You'll see a menu with four options. Press 1, 2, 3, or 4 and
+press Enter to choose.
+
+
+OPTION 1: DAYS BETWEEN DATES
+-----------------------------
+
+This tells you how many days separate any two dates.
+
+How it works:
+  1. Enter the first date (year, month, day) when prompted.
+  2. Enter the second date.
+  3. Choose a calculation method:
+       A = Actual calendar days (real number of days)
+       B = 30/360 bond basis (every month = 30 days,
+           every year = 360 days -- used in finance)
+
+The program shows you the result and writes it to datecalc.log.
+
+
+OPTION 2: ADD DAYS TO A DATE
+-----------------------------
+
+What date is 90 days from today? This option finds out.
+
+How it works:
+  1. Enter a starting date.
+  2. Enter the number of days to add (use a negative number
+     to subtract days, like -14 for "two weeks before").
+  3. The program shows the resulting date and its weekday.
+
+Example: May 7, 2026 + 5 days = 2026-05-12, Tuesday
+
+
+OPTION 3: DAY INFO
+-------------------
+
+Get details about any date.
+
+How it works:
+  1. Enter a date.
+  2. The program shows:
+       - The date itself
+       - The weekday (Monday, Tuesday, etc.)
+       - The day of the year (1 to 365/366)
+
+Example: May 7, 2026 is a Thursday, day 127 of the year.
+
+
+OPTION 4: QUIT
+--------------
+
+Exits the program.
+
+
+DATES YOU CAN ENTER
+-------------------
+
+The program works with dates from the year 1900 through 2099.
+All dates are validated -- if you enter February 30, it will
+ask you to try again.
+
+The program understands leap years correctly:
+  - 2024 was a leap year (divisible by 4, not by 100)
+  - 2000 was a leap year (divisible by 400)
+  - 1900 was NOT a leap year (divisible by 100 but not 400)
+
+
+LOG FILE
+--------
+
+Every time you use options 1, 2, or 3, the results are saved
+to a file called datecalc.log on your SD card. The file shows:
+
+  === Days Between Dates ===
+  Date 1: 2026-05-07
+  Date 2: 2026-05-12
+  Basis: Actual
+  Result: 5 days
+  ---
+
+You can view this file on your Agon Light or on a PC to keep
+a record of your calculations.
+
+
+ABOUT THE PROGRAM
+-----------------
+
+Inspired by: HP-12C financial calculator
+Written for: Agon Light 2 microcomputer
+Language:    BBC BASIC V for Z80
+Calendar:    Gregorian, with leap years correctly handled

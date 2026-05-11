@@ -1,0 +1,26 @@
+SET KEYBOARD 1
+
+HOTKEY 1 CHAIN "%%s"
+HOTKEY 2 LOAD "%%s"
+HOTKEY 3 RUN
+HOTKEY 4 SAVE "%%s"
+
+HOTKEY 5 LIST
+HOTKEY 6 MODE 20 : COLOR 143 : COLOR 0 : CLS : VDU 14 : *ls -l
+HOTKEY 7 *nano %%s
+HOTKEY 8 *more %%s
+ 
+HOTKEY 9 *hexload vdp %%s
+HOTKEY 10 CLS:AUTO
+HOTKEY 11 MODE 27 : COLOR 132 : COLOR 10 : CLS : *bye
+HOTKEY 12 MODE 27 : COLOR 128 + 4 : COLOR 9 : CLS : PR. : PR."          READY TO LEARN AGON!": COLOR 2
+
+LOAD /basic.bin
+RUN . bootscreen_4.bas
+
+VDU 22 27
+VDU 17 132
+VDU 17 15
+VDU 12
+
+bootlogo

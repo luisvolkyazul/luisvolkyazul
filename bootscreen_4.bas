@@ -11,9 +11,7 @@
    90 DIM VDP_ARRAY(50) : DIM MOS_ARRAY(50)
    95 ANYKEY%=INKEY(200) : REM DELAY TO MAKE SURE VERSION INFO ON SCREEN (tweak me, try lower until vdp & mos info disappear's).
   100 PROC_READ_CHARS(0,0,1)
-  105 REM ANYKEY%=INKEY(100) : REM DELAY TO MAKE SURE VERSION INFO ON SCREEN (tweak me, try lower until vdp & mos info disappear's).
   110 PROC_READ_CHARS(0,1,2)
-  112 REM ANYKEY%=INKEY(100) : REM DELAY TO MAKE SURE VERSION INFO ON SCREEN (tweak me, try lower until vdp & mos info disappear's).
   115 random_colour%=RND(64):IF random_colour%=4 THEN random_colour%=15
   116 REM *MOS_SETRTC
   120 M% = 27 : BorM$ = "B" : REM UNCOMMENT TO SET YOUR DEFAULTS.

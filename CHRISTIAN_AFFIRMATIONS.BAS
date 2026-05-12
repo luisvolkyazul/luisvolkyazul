@@ -3,7 +3,7 @@
    21 REM Uses 365 daily Christian affirmations
    22 PROC_Setup
    23 PROC_ShowAffirmation
-   24 r=RND(3):IF r=1 THEN PROC_DrawTree(7,300,650,0,100) ELSE IF r=2 THEN PROC_DrawFernIFS ELSE PROC_DrawMapleLeaf
+   24 r=RND(4):IF r=1 THEN PROC_DrawTree(7,300,650,0,100) ELSE IF r=2 THEN PROC_DrawFernIFS ELSE IF r=3 THEN PROC_DrawMapleLeaf ELSE PROC_DrawAnchor
    25 PROC_ExitToBASIC
    26 END
    29 DEF PROC_Setup
@@ -508,3 +508,85 @@
  4530 DATA "I am surrounded by God as the mountains surround Jerusalem.", "Psalm 125:2"
  4540 DATA "The Lord has engraved me on the palms of His hands; my walls are before Him.", "Isaiah 49:16"
  4550 DATA "I will bless the Lord at all times; His praise shall continually be in my mouth.", "Psalm 34:1"
+4551 :
+4560 DEF PROC_DrawAnchor
+4561 LOCAL cx,cy,s
+4562 REM ================================================
+4563 REM  PROC_DrawAnchor - Draws an anchor
+4564 REM ================================================
+4565 REM  BBC BASIC: Y increases UPWARD, (0,0) = bottom-left
+4566 REM
+4567 REM  Parameters (change line 4589):
+4568 REM    cx  = X center of anchor  (default: 640)
+4569 REM    cy  = Y center of anchor  (default: 450)
+4570 REM    s   = scale factor        (default: 1)
+4571 REM
+4572 REM  Anchor parts:
+4573 REM    Eye     - octagonal ring at top
+4574 REM    Stock   - horizontal crossbar near top
+4575 REM    Shaft   - long vertical bar
+4576 REM    Crown   - bottom of shaft, arms join here
+4577 REM    Arms    - sweep outward and upward from crown
+4578 REM    Flukes  - arrow tips at ends of arms
+4579 REM
+4580 REM  Key Y values (relative to cy):
+4581 REM    Eye center:    cy + 200
+4582 REM    Stock:         cy + 100
+4583 REM    Shaft top:     cy + 180 (eye bottom)
+4584 REM    Crown:         cy - 180
+4585 REM    Arm low:       cy - 200
+4586 REM    Fluke tips:    cy - 60
+4587 REM ================================================
+4588 REM ----Centered in drawing area below text----
+4589 cx=640:cy=450:s=1
+4590 VDU 23,1,0;0;0;0;
+4591 GCOL 0,1
+4592 REM ----EYE (octagonal ring at top)----
+4593 REM Octagon approximating a circle centered at cx, cy+200
+4594 MOVE cx,     cy+220*s
+4595 DRAW cx+14*s, cy+214*s
+4596 DRAW cx+20*s, cy+200*s
+4597 DRAW cx+14*s, cy+186*s
+4598 DRAW cx,     cy+180*s
+4599 DRAW cx-14*s, cy+186*s
+4600 DRAW cx-20*s, cy+200*s
+4601 DRAW cx-14*s, cy+214*s
+4602 DRAW cx,     cy+220*s
+4603 REM ----STOCK (horizontal crossbar)----
+4604 MOVE cx-60*s, cy+100*s
+4605 DRAW cx+60*s, cy+100*s
+4606 MOVE cx-60*s, cy+105*s
+4607 DRAW cx-60*s, cy+95*s
+4608 MOVE cx+60*s, cy+105*s
+4609 DRAW cx+60*s, cy+95*s
+4610 REM ----SHAFT (vertical bar)----
+4611 REM From bottom of eye down to the crown
+4612 MOVE cx, cy+180*s
+4613 DRAW cx, cy-180*s
+4614 REM ----CROWN REINFORCEMENT----
+4615 MOVE cx-15*s, cy-180*s
+4616 DRAW cx+15*s, cy-180*s
+4617 REM ----LEFT ARM----
+4618 REM Sweeps outward and upward from crown to left fluke
+4619 MOVE cx, cy-180*s
+4620 DRAW cx-40*s, cy-200*s
+4621 DRAW cx-80*s, cy-160*s
+4622 DRAW cx-120*s, cy-80*s
+4623 REM ----LEFT FLUKE----
+4624 MOVE cx-120*s, cy-80*s
+4625 DRAW cx-135*s, cy-60*s
+4626 DRAW cx-105*s, cy-95*s
+4627 DRAW cx-120*s, cy-80*s
+4628 REM ----RIGHT ARM----
+4629 REM Sweeps outward and upward from crown to right fluke
+4630 MOVE cx, cy-180*s
+4631 DRAW cx+40*s, cy-200*s
+4632 DRAW cx+80*s, cy-160*s
+4633 DRAW cx+120*s, cy-80*s
+4634 REM ----RIGHT FLUKE----
+4635 MOVE cx+120*s, cy-80*s
+4636 DRAW cx+135*s, cy-60*s
+4637 DRAW cx+105*s, cy-95*s
+4638 DRAW cx+120*s, cy-80*s
+4639 VDU 23,1,1;0;0;0;
+4640 ENDPROC

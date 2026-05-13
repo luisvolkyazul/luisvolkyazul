@@ -140,7 +140,6 @@
 870 DRAW cx-120*s, cy-30*s: MOVE cx, cy-240*s: DRAW cx, cy-290*s
 871 VDU 23,1,1;0;0;0;
 872 ENDPROC
-873 :
 874 :
   900 REM DATA statements: affirmation text, Bible verse reference
   910 DATA "God loves me with an everlasting love.", "Jeremiah 31:3"

@@ -15,6 +15,7 @@
   110 DRAW cx+80*s, cy-260*s: PRINTTAB(47,12)"(";cx+80;",";cy-260;")"
   115 PRINTTAB(36,12)"(";cx;",";cy-240;")"
   120 DRAW cx,      cy-240*s: REM CENTER BOTTOM
+  135 REM Drawing from center bottom to tips of leaf on right side
   130 DRAW cx+190*s, cy-170*s
   140 MOVE cx,      cy-240*s
   150 DRAW cx+170*s, cy-80*s
@@ -22,6 +23,7 @@
   170 DRAW cx+120*s, cy-30*s
   180 MOVE cx,      cy-240*s
   190 DRAW cx,       cy+20
+  195 REM Drawing from center bottom to the left and upwards
   200 MOVE cx,      cy-240*s
   210 DRAW cx-80*s, cy-260*s: PRINTTAB(25,12)"(";cx-80;",";cy-260;")"
   220 DRAW cx-140*s, cy-220*s
@@ -32,6 +34,7 @@
   270 DRAW cx-120*s, cy-30*s: PRINTTAB(23,4)"(";cx-120;",";cy-30;")"
   280 DRAW cx-40*s,  cy-40*s
   290 DRAW cx,       cy+20
+  295 REM Drawing from center bottom to tips of leaf on left side
   300 MOVE cx,      cy-240*s
   310 DRAW cx-190*s, cy-170*s
   320 MOVE cx,      cy-240*s

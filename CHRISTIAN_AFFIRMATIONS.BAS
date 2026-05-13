@@ -97,51 +97,51 @@
   818 NEXT
   820 VDU 23,1,1;0;0;0;
   822 ENDPROC
-  830 DEF PROC_DrawMapleLeaf
-  831 LOCAL cx,cy,s
-  832 cx=650:cy=500:s=1
-  833 VDU 23,1,0;0;0;0;
-  834 GCOL 0,1
-  835 REM MOVE cx, cy+180
-  836 REM DRAW cx, cy-20*s
-  837 REM MOVE cx-8*s, cy-20*s
-  838 REM DRAW cx+8*s, cy-20*s
-  839 REM
-  840 REM Outline
-  841 MOVE cx, cy+20*s
-  842 DRAW cx+40*s, cy-40*s
-  843 DRAW cx+120*s, cy-30*s
-  844 DRAW cx+100*s, cy-90*s
-  845 DRAW cx+170*s, cy-80*s
-  846 DRAW cx+130*s, cy-150*s
-  847 DRAW cx+190*s, cy-170*s
-  848 DRAW cx+140*s, cy-220*s
-  849 DRAW cx+80*s, cy-260*s
-  850 DRAW cx,     cy-240*s
-  851 DRAW cx-80*s, cy-260*s
-  852 DRAW cx-140*s, cy-220*s
-  853 DRAW cx-190*s, cy-170*s
-  854 DRAW cx-130*s, cy-150*s
-  855 DRAW cx-170*s, cy-80*s
-  856 DRAW cx-100*s, cy-90*s
-  857 DRAW cx-120*s, cy-30*s
-  858 DRAW cx-40*s, cy-40*s
-  859 DRAW cx,     cy+20*s
-  860 REM Veins removed
-  861 MOVE cx, cy-330
-  862 DRAW cx, cy
-  863 REM
-  864 REM
-  865 REM
-  866 REM
-  867 REM
-  868 REM
-  869 REM
-  870 REM
-  871 VDU 23,1,1;0;0;0;
-  872 ENDPROC
-  873 :
-  874 :
+830 DEF PROC_DrawMapleLeaf
+831 LOCAL cx,cy,s
+832 cx=650:cy=500:s=1
+833 GCOL 0,1
+834 REM Top of leaf then drawing to the right
+835 MOVE cx, cy+20
+836 DRAW cx+40*s, cy-40*s
+837 DRAW cx+120*s, cy-30*s
+838 DRAW cx+100*s, cy-90*s
+839 DRAW cx+170*s, cy-80*s
+840 DRAW cx+130*s, cy-150*s
+841 DRAW cx+190*s, cy-170*s
+842 DRAW cx+140*s, cy-220*s
+843 DRAW cx+80*s, cy-260*s
+844 DRAW cx, cy-240*s: REM CENTER BOTTOM
+845 REM Drawing from center bottom to tips of leaf on right side
+846 DRAW cx+190*s, cy-170*s
+847 MOVE cx, cy-240*s
+848 DRAW cx+170*s, cy-80*s
+849 MOVE cx, cy-240*s
+850 DRAW cx+120*s, cy-30*s
+851 MOVE cx, cy-240*s
+852 DRAW cx, cy+20
+853 REM Drawing from center bottom to the left and upwards
+854 MOVE cx, cy-240*s
+855 DRAW cx-80*s, cy-260*s
+856 DRAW cx-140*s, cy-220*s
+857 DRAW cx-190*s, cy-170*s
+858 DRAW cx-130*s, cy-150*s
+859 DRAW cx-170*s, cy-80*s
+860 DRAW cx-100*s, cy-90*s
+861 DRAW cx-120*s, cy-30*s
+862 DRAW cx-40*s, cy-40*s
+863 DRAW cx, cy+20
+864 REM Drawing from center bottom to tips of leaf on left side
+865 MOVE cx, cy-240*s
+866 DRAW cx-190*s, cy-170*s
+867 MOVE cx, cy-240*s
+868 DRAW cx-170*s, cy-80*s
+869 MOVE cx, cy-240*s
+870 DRAW cx-120*s, cy-30*s: MOVE cx, cy-240*s: DRAW cx, cy-290*s
+871 VDU 23,1,1;0;0;0;
+872 ENDPROC
+873 :
+874 :
   900 REM DATA statements: affirmation text, Bible verse reference
   910 DATA "God loves me with an everlasting love.", "Jeremiah 31:3"
   920 DATA "I am fearfully and wonderfully made.", "Psalm 139:14"
@@ -512,7 +512,7 @@
 4560 DEF PROC_DrawAnchor
 4561 LOCAL cx,cy,s
 4562 REM ================================================
-4563 REM  PROC_DrawAnchor - Draws an anchor
+4563 REM  PROC_DrawAnchor - Draws a Christian anchor
 4564 REM ================================================
 4565 REM  BBC BASIC: Y increases UPWARD, (0,0) = bottom-left
 4566 REM

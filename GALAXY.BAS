@@ -1,0 +1,19 @@
+    1 REM INSPIRED BY GEORGE'S CHANNEL HEXAPOD FRACTAL VIDEO
+    5 REM GALAXY.BAS
+   10 MODE 27
+   30 GCOL 0,15
+   40 DIM XX(4), XY(4), YX(4), YY(4), YT(4)
+   50 XX(2)=0.98 : XY(2)=-0.97 : YX(2)=0.9 : YY(2)=0.96 : YT(2)=1.7
+   60 XX(4)=-.15 : XY(4)=.28 : YX(4)=.26 : YY(4)=.24 : YT(4)=.44
+   70 X=0: Y=0
+   80 FOR I = 1 TO 20000
+   90   R = INT(RND(1)*100)
+  100   IF R<86 THEN F=2 ELSE F=4
+  110   X=XX(F)*X + XY(F)*Y
+  120   Y=YX(F)*X + YY(F)*Y + YT(F)
+  130   SX=1000 + X*200
+  140   SY=552 - Y*200
+  145   GCOL 0,RND(64)+1
+  150   PLOT 69, SX, SY
+  160 NEXT
+  170 A=GET

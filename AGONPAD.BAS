@@ -22,7 +22,7 @@
  1040 IF ASC(k$) = 13 THEN GOSUB 3000 : GOTO 1000 : REM 'Enter' Key
  1050 IF ASC(k$) = 19 THEN GOSUB 6000 : GOTO 1000 : REM 'Ctrl + S'
  1060 IF ASC(k$) = 8  THEN GOSUB 4000 : GOTO 1000 : REM 'Backspace'
- 1065 :
+ 1065 IF ASC(k$) = 17 THEN GOSUB 7000 : GOTO 1000 : REM 'Ctrl + Q' - Quit
  1070 REM Normal character
  1080 IF col >= maxcol THEN GOTO 1000 : REM Prevent overflow
  1090 VDU 31, col, row
@@ -74,3 +74,10 @@
  6070 COLOUR 2 : PRINT " SAVED! "; : COLOUR 15
  6080 VDU 31, col, row
  6090 RETURN
+ 6095 :
+ 7000 REM Quit program
+ 7010 CLS
+ 7020 VDU 31, 1, 1
+ 7030 COLOUR 7 : PRINT "Thanks for using Agonpad, Goodbye!"';
+ 7040 END
+ 7050 RETURN

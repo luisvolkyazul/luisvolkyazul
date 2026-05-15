@@ -10,7 +10,7 @@
    60 col = 1
    70 row = 2
    80 maxrow = 31
-   90 maxcol = 80 : REM Adjust if your screen is different
+   90 maxcol = 79 : REM Adjust if your screen is different
   100 CLS
   110 COLOUR 6 : VDU 31, 70, 0 : PRINT RIGHT$(TIME$, 8);
   120 COLOUR 3 : VDU 31, 36, 0 : PRINT "AGONPAD";

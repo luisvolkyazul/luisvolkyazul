@@ -21,9 +21,11 @@
  1030 IF k$ = "" THEN GOTO 1000
  1040 IF ASC(k$) = 13 THEN GOSUB 3000 : GOTO 1000 : REM 'Enter' Key
  1050 IF ASC(k$) = 19 THEN GOSUB 6000 : GOTO 1000 : REM 'Ctrl + S'
- 1060 IF ASC(k$) = 8  THEN GOSUB 4000 : GOTO 1000 : REM 'Backspace'
- 1065 IF ASC(k$) = 17 THEN GOSUB 7000 : GOTO 1000 : REM 'Ctrl + Q' - Quit
- 1070 REM Normal character
+1060 IF ASC(k$) = 8 OR ASC(k$) = 127 THEN GOSUB 4000 ELSE GOTO 1065
+1061 GOTO 1000
+1065 IF ASC(k$) = 17 THEN GOSUB 7000 ELSE GOTO 1070
+1066 GOTO 1000
+1070 REM Normal character
  1080 IF col >= maxcol THEN GOTO 1000 : REM Prevent overflow
  1090 VDU 31, col, row
  1100 PRINT k$;
@@ -50,12 +52,10 @@
  3085 :
  4000 REM Handle 'Backspace' key
  4010 IF col <= 1 OR buf$ = "" THEN RETURN
- 4020 col = col - 1
- 4030 buf$ = LEFT$(buf$, LEN(buf$) - 1)
- 4040 VDU 31, col, row
- 4050 PRINT " ";
- 4060 VDU 31, col, row
- 4070 RETURN
+4020 col = col - 1
+4030 buf$ = LEFT$(buf$, LEN(buf$) - 1)
+4040 VDU 127
+4070 RETURN
  4075 :
  5000 REM Scroll / Clear text area
  5010 FOR r = 2 TO maxrow

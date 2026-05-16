@@ -1,7 +1,7 @@
    10 REM Sierpinski Triangle
    20 M% = 27
    30 PROC_INITIALIZE
-   35 COLOUR 1: PRINT TAB(1,1) "Sierpinski Triangle - Agon Light 2"
+   35 COLOUR 1: PRINT TAB(23,17) "Sierpinski Triangle - Agon Light 2"
    40 REM Screen dimensions
    50 W = W% * 16
    60 H = H% * 32

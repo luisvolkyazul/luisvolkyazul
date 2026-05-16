@@ -1,6 +1,8 @@
+    1 n=0
+    2 VDU 23, 0, &C0, n: REM Use n=1 for logical screen scaling on, other wise change last value to 0 to turn it off.
     5 CLS
    10 REM Sierpinski Triangle
-   15 INPUT"SELECT MODE NUMBER:"M%
+   15 INPUT"SELECT MODE NUMBER: "M%
    20 REM M% = 27
    30 PROC_INITIALIZE
    35 COLOUR RND(C%): PRINT TAB((cols%-34)/2,(rows%/2)-1) "Sierpinski Triangle - Agon Light 2"'
@@ -14,12 +16,16 @@
   110 REM Start point
   120 x = W / 2
   130 y = H / 2
-  140 GCOL 0, RND(C%)
-  150 FOR i = 1 TO 80000
+  140 COLOUR FG%
+  150 FOR i = 1 TO 10000
+  151   PRINT TAB(1,0)"screen scaling: ";:IF n=0 THEN PRINT"OFF" ELSE PRINT"ON"
   155   PRINT TAB(1,1)"x: ";x:PRINT TAB(1,2)"y: ";y:REM inspect values for x,y
-  156   PRINT TAB(1,3)"W%: ";W%:PRINT TAB(1,4)"H%: ";H%':REM inspect values for W%,H%
-  158   PRINT TAB(1,5)"cols%: ";cols%:PRINT TAB(1,6)"rows%: ";rows%':REM inspect values for cols%, rows%
+  156   PRINT TAB(1,3)"W%: ";W%:PRINT TAB(1,4)"H%: ";H%:REM inspect values for W%,H%
+  158   PRINT TAB(1,5)"cols%: ";cols%:PRINT TAB(1,6)"rows%: ";rows%:REM inspect values for cols%, rows%
+  159   PRINT TAB(1,7)"MODE: ";M%;
   160   r = RND(3)
+  165   PRINT TAB(1,8)"r: ";r
+  166   PRINT TAB(1,9)"i:";i
   170   IF r = 1 THEN
   180     x = (x + x1) / 2
   190     y = (y + y1) / 2
@@ -31,7 +37,8 @@
   250       y = (y + y3) / 2
   260     ENDIF
   265   ENDIF
-  267   GCOL 0, RND(C%)
+  266   dot_color = RND(C%)
+  267   GCOL 0, dot_color :PRINT TAB(1,10)"Number of colors: ";C% : PRINT TAB(1,11)"dot_color: ";dot_color'
   270   PLOT 69, x, y
   280 NEXT i
   290 END
@@ -46,7 +53,7 @@
   370 DEF PROC_INITIALIZE
   380 BG% = 132
   390 FG% = 15
-  395 *FX 19
+  395 REM *FX 19
   400 MODE M%
   410 COLOUR BG% : COLOUR FG% : CLS
   420 cols% = FN_GETBYTE_VDP(&13) : REM GET number of columns
@@ -59,5 +66,3 @@
   500 REM Obtain values for screen size
   505 DEF FN_s(o%): L%=o%: A%=&A0: =USR(&FFF4) AND &FF
   510 DEF FN_w(o%): =FN_s(o%) + FN_s(o% + 1) * 256
-  515 W% = FN_w(&F) : REM attempting to get screen x value
-  517 H% = FN_w(&11): REM attempting to get screen y value

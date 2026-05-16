@@ -1,10 +1,12 @@
+    5 CLS
    10 REM Sierpinski Triangle
-   20 M% = 27
+   15 INPUT"SELECT MODE NUMBER:"M%
+   20 REM M% = 27
    30 PROC_INITIALIZE
-   35 COLOUR 1: PRINT TAB(23,17) "Sierpinski Triangle - Agon Light 2"
+   35 COLOUR RND(C%): PRINT TAB((cols%-34)/2,(rows%/2)-1) "Sierpinski Triangle - Agon Light 2"'
    40 REM Screen dimensions
-   50 W = W% * 16
-   60 H = H% * 32
+   50 W = W%
+   60 H = H%
    70 REM Triangle vertices
    80 x1 = W / 2 : y1 = H - 20
    90 x2 = 20    : y2 = 20
@@ -14,6 +16,9 @@
   130 y = H / 2
   140 GCOL 0, RND(C%)
   150 FOR i = 1 TO 80000
+  155   PRINT TAB(1,1)"x: ";x:PRINT TAB(1,2)"y: ";y:REM inspect values for x,y
+  156   PRINT TAB(1,3)"W%: ";W%:PRINT TAB(1,4)"H%: ";H%':REM inspect values for W%,H%
+  158   PRINT TAB(1,5)"cols%: ";cols%:PRINT TAB(1,6)"rows%: ";rows%':REM inspect values for cols%, rows%
   160   r = RND(3)
   170   IF r = 1 THEN
   180     x = (x + x1) / 2
@@ -44,8 +49,15 @@
   395 *FX 19
   400 MODE M%
   410 COLOUR BG% : COLOUR FG% : CLS
-  420 W% = FN_GETBYTE_VDP(&13) : REM GET SCREEN WIDTH
-  430 H% = FN_GETBYTE_VDP(&14) : REM GET SCREEN HEIGHT
+  420 cols% = FN_GETBYTE_VDP(&13) : REM GET number of columns
+  421 W% = FN_w(&F) : REM attempting to get screen x value
+  430 rows% = FN_GETBYTE_VDP(&14) : REM GET number of rows
+  431 H% = FN_w(&11): REM attempting to get screen y value
   440 C% = FN_GETBYTE_VDP(&15) : REM GET NUMBER OF AVAILABLE COLORS
   450 ENDPROC: REM END PROC_INITIALIZE
   460 :
+  500 REM Obtain values for screen size
+  505 DEF FN_s(o%): L%=o%: A%=&A0: =USR(&FFF4) AND &FF
+  510 DEF FN_w(o%): =FN_s(o%) + FN_s(o% + 1) * 256
+  515 W% = FN_w(&F) : REM attempting to get screen x value
+  517 H% = FN_w(&11): REM attempting to get screen y value

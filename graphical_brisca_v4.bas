@@ -204,9 +204,9 @@
 3020 tF%(1)=dF%(cp%) : tSu%(1)=dS%(cp%)
 3030 led%=tSu%(1)
 3040 COLOUR 5
-3050 PRINT TAB(0,10)"CPU leads: ";rS$(tF%(1));" ";sN$(tSu%(1))
+3050 PRINT TAB(0,9)"CPU leads: ";rS$(tF%(1));" ";sN$(tSu%(1))
 3060 COLOUR 11
-3070 PRINT TAB(0,11)"Your turn. Pick slot (1-3):"
+3070 PRINT TAB(0,10)"Your turn. Pick slot (1-3):"
 3080 GOSUB 6000
 3090 pp%=pH%(pSlot%) : pH%(pSlot%)=0
 3100 tF%(2)=dF%(pp%) : tSu%(2)=dS%(pp%)
@@ -251,7 +251,7 @@
 5370 REM SUB 6000: PLAYER PICKS CARD
 5380 REM ============================
 6000 pSlot%=0
-6010 INPUT TAB(0,12)"  Slot (1-3): " ch$
+6010 INPUT TAB(0,11)"  Slot (1-3): " ch$
 6020 pSlot%=VAL(ch$)
 6030 IF pSlot%<1 THEN GOTO 6010
 6040 IF pSlot%>3 THEN GOTO 6010

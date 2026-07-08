@@ -7,7 +7,7 @@
    25 REM Already known from ACCENT_TEST.BAS (Test 2, Latin-1 CHR$ codes):
    26 REM   CHR$(243) = correct o-acute (o)
    27 REM   CHR$(241) = correct n-tilde (n)
-   28 REM   CHR$(233) = WRONG - does not render as e-acute
+   28 REM   CHR$(233) = correct e-acute
    29 REM This dump finds working codes for: a-acute e-acute i-acute u-acute
    30 REM Aacute Eacute Iacute Oacute Uacute Ntilde inv-question inv-exclaim
    40 start=128
